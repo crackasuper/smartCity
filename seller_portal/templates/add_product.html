@@ -1,0 +1,80 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<style>
+    .card {
+        margin-bottom: 20px;
+      }
+      
+      .card-body {
+        padding: 20px;
+      }
+      
+      .card-title {
+        font-weight: bold;
+      }
+      
+      .card-text {
+        font-size: 18px;
+      }
+      
+      .table {
+        margin-top: 20px;
+      }
+      
+      .table-striped {
+        border-collapse: collapse;
+      }
+      
+      .table-striped th, .table-striped td {
+        border: 1px solid #ddd;
+        padding: 10px;
+        text-align: left;
+      }
+      
+      .table-striped th {
+        background-color: #f0f0f0;
+      }
+      
+      .form-group {
+        margin-bottom: 20px;
+      }
+      
+      .form-control {
+        padding: 10px;
+        font-size: 18px
+      }
+</style>
+  <div class="container-fluid">
+    <div class="row">
+      <div class="col-md-12">
+        <h1 class="display-4">Add Product</h1>
+        <hr>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-md-6">
+        <form method="post" enctype="multipart/form-data">
+          {% csrf_token %}
+          <div class="form-group">
+            <label for="product_name">Product Name</label>
+            <input type="text" class="form-control" id="product_name" name="product_name" required>
+          </div>
+          <div class="form-group">
+            <label for="description">Description</label>
+            <textarea class="form-control" id="description" name="description" required></textarea>
+          </div>
+          <div class="form-group">
+            <label for="price">Price</label>
+            <input type="number" class="form-control" id="price" name="price" required>
+          </div>
+          <div class="form-group">
+            <label for="image">Image</label>
+            <input type="file" class="form-control" id="image" name="image" required>
+          </div>
+          <button type="submit" class="btn btn-primary">Add Product</button>
+        </form>
+      </div>
+    </div>
+  </div>
+{% endblock %}
